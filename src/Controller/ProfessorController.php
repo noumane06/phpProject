@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProfessorController extends AbstractController
 {
+
     /**
      * @Route("/professor", name="professor")
      */

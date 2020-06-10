@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Gestion des Proffeseurs | Bienvenue{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/Styles/MainPage.css"/>
+        {% endblock %}
+    </head>
+    <body>
+        <img id="bg" src="Res/illus.svg" alt="background illustration"/>
+        <div class="Title">
+            <h1>Bienvenue , que voulez vous faire</h1>
+        </div>
+        <div class="cards-Container">
+            <div class="Card prof">
+                <h3 class="card_title">Gestion des professeurs</h3>
+                <a class="Enter" href="/professor">Enter</a>
+            </div>
+            <div class="Card cours">
+                <h3 class="card_title">Gestion des cours</h3>
+                <a class="Enter" href="">Enter</a>
+            </div>
+            <div class="Card dep">
+                <h3 class="card_title">Gestion des départements</h3>
+                <a class="Enter" href="">Enter</a>
+            </div>
+        </div>
+    </body>
+</html>
