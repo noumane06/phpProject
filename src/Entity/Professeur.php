@@ -48,7 +48,7 @@ class Professeur
     private $email;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $date_recrutement;
 
@@ -129,12 +129,12 @@ class Professeur
         return $this;
     }
 
-    public function getDateRecrutement(): ?\DateTimeInterface
+    public function getDateRecrutement(): ?string
     {
         return $this->date_recrutement;
     }
 
-    public function setDateRecrutement(?\DateTimeInterface $date_recrutement): self
+    public function setDateRecrutement(?string $date_recrutement): self
     {
         $this->date_recrutement = $date_recrutement;
 
