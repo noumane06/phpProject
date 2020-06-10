@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Cours;
 use App\Repository\CoursRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,12 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class CoursController extends AbstractController
 {
     /**
-     * @Route("/", name="cours")
+     * @Route("/", name="acceuil")
      */
     public function index()
     {
         return $this->render('cours/index.html.twig', [
-            'controller_name' => 'CoursController',
+
         ]);
     }
     /**
@@ -29,25 +30,26 @@ class CoursController extends AbstractController
         ]);
     }
     /**
-     * @Route("/Cours/add", name="Liste_Cours")
+     * @Route("/Cours/ajouter", name="ajouter")
+
      */
-    public function add_cours(CoursRepository $coursRepository)
-    {   $Cours=$coursRepository->findAll();
+    public function Ajouter(CoursRepository $coursRepository )
+    {  $Cours=$coursRepository->findAll();
         return $this->render('cours/Ajouter.html.twig', [
             'Cours'=>$Cours
         ]);
-    }
 
+    }
     /**
-     * @Route("/Cours/ajouter", name="ajouter")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/Cours/new", name="new_Cours")
      */
-    public function Ajouter_cours(Request,EntityMa)
-    {
-        $c =new Cours();
+    public function new(\Symfony\Component\HttpFoundation\Request $request,EntityManagerInterface $em )
+    {   $c =new Cours();
         $c->setIntitule($request->request->get("intitule"));
-        return $this->render('cours/Ajouter.html.twig', [
-
-        ]);
+        $em->persist($c);
+        $em->flush($c);
+        return $this->redirectToRoute("Liste_Cours");
     }
+
+
 }
