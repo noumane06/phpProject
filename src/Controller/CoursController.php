@@ -16,6 +16,7 @@ class CoursController extends AbstractController
      */
     public function index()
     {
+
         return $this->render('cours/index.html.twig', [
 
         ]);
