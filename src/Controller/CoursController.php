@@ -52,6 +52,19 @@ class CoursController extends AbstractController
         $em->flush($c);
         return $this->redirectToRoute("Liste_Cours");
     }
+    /**
+     * @Route("/Cours/supp", name="cours_supp")
+     */
+    public function supp(CoursRepository $repo)
+    {
+        $Cours = $repo->findAll();
+        return $this->render('cours/supp.html.twig', [
+            'Cours' => $Cours,
+        ]);
+    }
+
+
+
 
 
 }
