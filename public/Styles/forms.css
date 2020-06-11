@@ -1,0 +1,107 @@
+body
+{
+    font-family: "Glacial Indifference";
+}
+h1
+{
+    font-family: "Riffic Free Medium";
+    color: rgb(64, 122, 255);
+    text-align: center;
+}
+
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    background: url("/Res/form_back.png");
+    width: 40%;
+}
+
+.right {
+    right: 0;
+    width: 60%;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+    opacity: 1;
+    transition: opacity ease-in-out 0.2s;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.link
+{
+    margin-left: 20%;
+}
+.leftee
+{
+    font-weight: bolder;
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color ease-in-out 0.2s;
+}
+.leftee:hover
+{
+    background-color: rgba(64, 122, 255, 0.16);
+}
+.link .leftee a
+{
+    text-decoration: none;
+    color: #fafafa ;
+    font-size: 20px;
+}
+.float_contain
+{
+    overflow: auto;
+}
+.lefter
+{
+    float: left;
+}
+.righter
+{
+    float: right;
+}
+
+
+input[type=submit]:hover {
+    opacity: 0.9;
+
+}
+.button
+{
+    font-weight: bolder;
+}
+label
+{
+    font-weight: bolder;
+    color: #2a2a2a;
+}
+.form_container {
+    width: 70%;
+    margin-left: 15%;
+}
