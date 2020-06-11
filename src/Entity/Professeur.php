@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProfesseurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +53,24 @@ class Professeur
      * @ORM\Column(type="string", nullable=true)
      */
     private $date_recrutement;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Cours::class, inversedBy="professeurs")
+     */
+    private $course;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Departements::class, inversedBy="Prof")
+     */
+    private $departements;
+
+    public function __construct()
+    {
+        $this->course = new ArrayCollection();
+    }
+
+
+
 
     public function getId(): ?int
     {
@@ -140,4 +160,48 @@ class Professeur
 
         return $this;
     }
+
+    /**
+     * @return Collection|Cours[]
+     */
+    public function getCourse(): Collection
+    {
+        return $this->course;
+    }
+
+    public function addCourse(Cours $course): self
+    {
+        if (!$this->course->contains($course)) {
+            $this->course[] = $course;
+        }
+
+        return $this;
+    }
+
+    public function removeCourse(Cours $course): self
+    {
+        if ($this->course->contains($course)) {
+            $this->course->removeElement($course);
+        }
+
+        return $this;
+    }
+
+    public function getDepartements(): ?Departements
+    {
+        return $this->departements;
+    }
+
+    public function setDepartements(?Departements $departements): self
+    {
+        $this->departements = $departements;
+
+        return $this;
+    }
+
+
+
+
+
+
 }

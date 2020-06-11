@@ -1,0 +1,15 @@
+<h1>Les Cours disponibles </h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Intitule</th>
+    </tr>
+    {% for c in Cours %}
+        <td>{{ c.id}}</td>
+        <td>{{ c.intitule }}</td>
+
+
+    {% endfor %}
+
+</table>
+<a href="{{ path("ajouter") }}">new course </a>
