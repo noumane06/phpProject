@@ -7,7 +7,7 @@ body
 body .Title
 {
   font-family: "Riffic Free Medium";
-  color: #008B8B ;
+
   align-items: center;
   justify-content: center;
   margin-bottom: 4%;
@@ -17,7 +17,7 @@ body .Title
 }
 body .Title h1
 {
-    flex-grow: 1.5;
+    flex-grow: 1;
 }
 .link
 {
