@@ -1,0 +1,108 @@
+body
+{
+    margin: 55px 50px 15px 100px;
+}
+body .Title h1
+{
+    font-family: "Riffic Free Medium";
+    background: rgb(253,29,29);
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+
+}
+body .cards-Container
+{
+    margin-top: 2%;
+    display: flex;
+    padding: 100px;
+    justify-content: center;
+}
+.Card
+{
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-right: 10%;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: #2a2a2a ;
+    width: 80%;
+    background-position: center;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    position: relative;
+    padding: 100px 80px 100px 80px ;
+}
+
+.Card .Enter
+{
+
+    text-decoration: none;
+    color: white;
+    font-family: 'Glacial Indifference';
+    font-weight: bolder;
+    background: rgb(253,29,29);
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+    padding: 0.5em 2em;
+    border-radius: 15px;
+    transition: background 0.2s;
+    margin-top: 50px;
+    cursor: pointer;
+}
+.Card .Enter:hover
+{
+    background: rgba(253,29,29,0.8);
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 80%);
+}
+.Card:hover {
+    box-shadow: 5px 8px 16px 0 rgba(0,0,0,0.3);
+}
+.prof
+{
+    background-image: url('/Res/card_prof.png');
+}
+
+.dep
+{
+    background-image: url('/Res/card_dep.jpg');
+}
+
+.cours
+{
+    background-image: url('/Res/card_cours.png');
+}
+
+/* Titleee */
+.prof .card_title
+{
+    font-family: "Glacial Indifference";
+    font-weight: bolder;
+    color: #FFFFFF;
+    margin-bottom: 37px;
+}
+.dep .card_title
+ {
+     font-family: "Glacial Indifference";
+     font-weight: bolder;
+     color: #FFFFFF;
+     margin-bottom: 60px;
+ }
+.cours .card_title
+  {
+      font-family: "Glacial Indifference";
+      font-weight: bolder;
+      color: #FFFFFF;
+      margin-bottom: 60px;
+  }
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    /* Preserve aspet ratio */
+    min-width: 90%;
+    min-height: 100%;
+    z-index: -1;
+}

@@ -12,7 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class CoursController extends AbstractController
 {
     /**
-     * @Route("/", name="acceuil")
+     * @Route("
+     * ", name="acceuil")
      */
     public function index()
     {
