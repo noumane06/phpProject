@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello man </title>
+</head>
+<style>
+    table {
+        font-family: "Glacial Indifference";
+        border-collapse: collapse;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body>
+<div class="professeurs">
+    <a href="/professor">Go back</a>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>cin</th>
+            <th>adresse</th>
+            <th>telephone</th>
+            <th>Email</th>
+            <th>Date de recrutement</th>
+        </tr>
+        {% for prof in professeurs %}
+            <tr>
+                <td>{{ prof.id }}</td>
+                <td>{{ prof.nom }}</td>
+                <td>{{ prof.prenom }}</td>
+                <td>{{ prof.cin }}</td>
+                <td>{{ prof.adresse }}</td>
+                <td>{{ prof.telephone }}</td>
+                <td>{{ prof.email }}</td>
+                <td>{{ prof.dateRecrutement }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>
+
+
