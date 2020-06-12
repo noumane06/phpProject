@@ -34,8 +34,11 @@
 
         </tr>
         {% for c in Cours %}
-            <td>{{ c.id}}</td>
-            <td>{{ c.intitule }}</td>
+            <tr>
+                <td>{{ c.id}}</td>
+                <td>{{ c.intitule }}</td>
+            </tr>
+
         {% endfor %}
     </table>
 
