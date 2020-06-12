@@ -1,19 +1,41 @@
+<!DOCTYPE html>
+<html>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;text-align: justify }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <title>{% block title %}Cours | Que voulez vous faire ?{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Styles/forms.css"/>
+    {% endblock %}
+</head>
+<body>
+<div class="split left">
+    <div class="link">
+        <div class="leftee">
+            <a href="/professor"> <i class="fa fa-arrow-left" style="font-size:20px; color: #fafafa ; padding-right: 5px"></i>Retourner</a>
+        </div>
+    </div>
+    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xRmNN8.json"  background="transparent"  speed="1"  style="width: 93%; height: 93%; text-align: center"  loop  autoplay>
 
-<div class="example-wrapper">
-    <h1>Ajout des proffesseurs! ✅</h1>
-    <div>
+    </lottie-player>
+</div>
+<div class="split right">
+        <h1 class="title">Ajout des proffesseurs! </h1>
+    <div class="form_container">
         <form action="{{ path("form_handler") }}" method="post">
-            <label>Nom</label>
-            <input type="text"  name="Nom" placeholder="Your last name.." required>
-
-            <label>Prenom</label>
-            <input type="text" name="Prenom" placeholder="Your name.." required> <br/>
+            <div class="float_contain">
+                <div class="lefter">
+                    <label>Nom</label>
+                    <input type="text"  name="Nom" placeholder="Your last name.." required>
+                </div>
+                <div class="righter">
+                    <label>Prenom</label>
+                    <input type="text" name="Prenom" placeholder="Your name.." required> <br/>
+                </div>
+            </div>
 
             <label>Adresse</label>
             <input type="text" name="Adresse" placeholder="Your home adresse" required><br/>
@@ -30,9 +52,10 @@
             <label>Date de recrutement</label>
             <input type="date" name="Date" required>
 
-            <input type="submit" value="Add">
+            <input class="button" type="submit" value="A J O U T E R">
         </form>
     </div>
-    <a href="/professor">Go back</a>
+
 </div>
-{% endblock %}
+</body>
+</html>
