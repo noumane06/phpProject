@@ -1,0 +1,96 @@
+table {
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+    font-family: "Glacial Indifference";
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    /* Preserve aspet ratio */
+    min-width: 90%;
+    min-height: 100%;
+    z-index: -1;
+}
+.ajout
+{
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: opacity ease-in-out 0.2s;
+    background-color: #f3534f;
+    text-decoration: none;
+    color: #fafafa;
+    opacity: 1;
+}
+.ajout:hover
+{
+    opacity: 0.9;
+}
+.professeurs
+{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fafafa;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 0px 15px 3px rgba(0,0,0,0.2);
+    margin-top: 5%;
+
+}
+th, td {
+    padding: 1em;
+    background: #ddd;
+    border-bottom: 2px solid white;
+}
+
+body {
+    margin: 1.5em;
+}
+body .Title
+{
+    font-family: "Riffic Free Medium";
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3%;
+    overflow: auto;
+    display: flex;
+
+}
+body .Title h1
+{
+    flex-grow: 1;
+}
+.link
+{
+    flex-grow: 1;
+    font-family: "Glacial Indifference";
+    font-weight: bolder;
+
+}
+
+.left
+{
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color ease-in-out 0.2s;
+}
+.left:hover
+{
+    background-color: rgba(56,56,56,0.05);
+}
+.link .left a
+{
+    text-decoration: none;
+    color: #2a2a2a ;
+    font-size: 20px;
+}
