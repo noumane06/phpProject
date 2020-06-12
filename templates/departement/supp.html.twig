@@ -6,18 +6,17 @@
     <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
 </head>
 </html>
-<h1>Les departements disponibles </h1>
+
 <table border="1">
     <tr>
         <th>ID</th>
-        <th>nom_departement</th>
+        <th>nom_dep</th>
     </tr>
     {% for d in departement %}
         <td>{{ d.id}}</td>
         <td>{{ d.NomDep }}</td>
-
+        <td> <a href="{{ path("delete",{id:d.id}) }}"> Supprimer</a> <br>
+            <a href="{{ path("editer",{id:d.id}) }}">Editer</a> </td>
 
     {% endfor %}
 </table>
-<a href="{{ path("ajouter_dep") }}">new dep </a> <br>
-<a href="{{ path("departement") }}"> go back</a>

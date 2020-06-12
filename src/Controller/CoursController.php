@@ -49,7 +49,7 @@ class CoursController extends AbstractController
     {   $c =new Cours();
         $c->setIntitule($request->request->get("intitule"));
         $em->persist($c);
-        $em->flush($c);
+        $em->flush();
         return $this->redirectToRoute("Liste_Cours");
     }
     /**
@@ -63,19 +63,19 @@ class CoursController extends AbstractController
         ]);
     }
     /**
-     * @Route("/Cours/delete/{id}", name="delete")
+     * @Route("/Cours/delete/{id}", name="delete_cours")
      */
     public function handleSupp(EntityManagerInterface $em,$id,CoursRepository $repository)
     {
 
-        $c=$repository->find($id);
-        $em->remove($c);
+        $co=$repository->find($id);
+        $em->remove($co);
         $em->flush();
 
         return $this -> redirectToRoute("cours_supp");
     }
     /**
-     * @Route("/professor/editer/{id}", name="editer")
+     * @Route("/Cours/Editer/{id}", name="Editer_cours")
      */
 
 
@@ -83,9 +83,23 @@ class CoursController extends AbstractController
     public function editer($id,CoursRepository $repository)
     {
         $Cours=$repository->find($id);
-        return $this->render('cours/editer.html.twig', [
+        return $this->render('cours/Editer.html.twig', [
             'cours' => $Cours,
         ]);
+    }
+    /**
+     * @Route("/Cours/handlEdit/{id}", name="cours_HandleEdit")
+     */
+
+
+    public function Handleediter(EntityManagerInterface $em,Request $req,$id,CoursRepository $repository)
+    {
+        $co=$repository->find($id);
+        $co -> setIntitule($req->request->get("intitule"));
+
+        $em ->persist($co);
+        $em ->flush();
+        return $this -> redirectToRoute("Cours_supp");
     }
 
 
