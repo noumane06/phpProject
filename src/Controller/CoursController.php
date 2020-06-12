@@ -75,7 +75,7 @@ class CoursController extends AbstractController
         return $this -> redirectToRoute("cours_supp");
     }
     /**
-     * @Route("/professor/editer/{id}", name="editer")
+     * @Route("/Cours/editer/{id}", name="editer")
      */
 
 

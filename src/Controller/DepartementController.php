@@ -51,4 +51,39 @@ class DepartementController extends AbstractController
         $em->flush($dep);
         return $this->redirectToRoute("Liste_dep");
     }
+    /**
+     * @Route("/departement/supp", name="dep_supp")
+     */
+    public function supp( DepartementsRepository $repository)
+    {
+        $dep = $repository->findAll();
+        return $this->render('departement/supp.html.twig', [
+            'departement' => $dep,
+        ]);
+    }
+    /**
+     * @Route("/Cours/delete/{id}", name="delete")
+     */
+    public function handleSupp(EntityManagerInterface $em,$id,DepartementsRepository $repository)
+    {
+
+        $d=$repository->find($id);
+        $em->remove($d);
+        $em->flush();
+
+        return $this -> redirectToRoute("dep_supp");
+    }
+    /**
+     * @Route("/departement/editer/{id}", name="editer")
+     */
+
+
+
+    public function editer($id,DepartementsRepository $repository)
+    {
+        $dep=$repository->find($id);
+        return $this->render('departement/editer.html.twig', [
+            'departement' => $dep,
+        ]);
+    }
 }

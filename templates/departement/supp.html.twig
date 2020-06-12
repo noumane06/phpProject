@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello </title>
+    <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+</head>
+</html>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>nom_dep</th>
+    </tr>
+    {% for d in departement %}
+        <td>{{ d.id}}</td>
+        <td>{{ d.nom_dep }}</td>
+
+
+    {% endfor %}
+</table>
+<a href="{{ path("delete",{id:d.id}) }}"> Supprimer</a> <br>
+    <a href="{{ path("editer",{id:d.id}) }}">Editer</a>
