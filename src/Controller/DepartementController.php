@@ -46,9 +46,9 @@ class DepartementController extends AbstractController
      */
     public function new(\Symfony\Component\HttpFoundation\Request $request,EntityManagerInterface $em )
     {   $dep =new Departements();
-        $dep->setNomDep($request->request->get("intitule"));
+        $dep->setNomDep($request->request->get("nom_dep"));
         $em->persist($dep);
-        $em->flush($dep);
+        $em->flush();
         return $this->redirectToRoute("Liste_dep");
     }
     /**

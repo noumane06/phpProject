@@ -14,10 +14,9 @@
     </tr>
     {% for d in departement %}
         <td>{{ d.id}}</td>
-        <td>{{ d.nom_dep }}</td>
-
+        <td>{{ d.NomDep }}</td>
+        <td> <a href="{{ path("delete",{id:d.id}) }}"> Supprimer</a> <br>
+            <a href="{{ path("editer",{id:d.id}) }}">Editer</a> </td>
 
     {% endfor %}
 </table>
-<a href="{{ path("delete",{id:d.id}) }}"> Supprimer</a> <br>
-    <a href="{{ path("editer",{id:d.id}) }}">Editer</a>

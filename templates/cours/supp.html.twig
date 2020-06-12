@@ -37,8 +37,8 @@
                 <td>{{ c.id }}</td>
                 <td>{{ c.intitule }}</td>
 
-                <td><a href="{{ path("delete",{id:c.id}) }}"> Supprimer</a> <br>
-                    <a href="{{ path("editer",{id:c.id}) }}">Editer</a>
+                <td><a href="{{ path("delete_cours",{id:c.id}) }}"> Supprimer</a> <br>
+                    <a href="{{ path("Editer_cours",{id:c.id}) }}">Editer</a>
                 </td>
             </tr>
         {% endfor %}
