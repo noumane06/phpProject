@@ -24,10 +24,10 @@
 <div class="split right">
     <h1 class="title">Ajout de departement ! </h1>
     <div class="form_container" style="margin-top: 20%">
-        <form action="{{ path("new_dep") }}" method="post">
+        <form action="/Departements/new" method="post">
 
             <label>Nom du departement</label>
-            <input type="text" name="Nom departement" placeholder="departement" required><br/>
+            <input type="text" name="nom_dep" placeholder="departement" required><br/>
 
             <input class="button" type="submit" value="Ajouter le departement !">
         </form>

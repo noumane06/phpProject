@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}Liste des proffesseurs {% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Styles/affichage.css"/>
+    {% endblock %}
 </head>
+<style>
+
+</style>
+<body>
+<img id="bg" src="/Res/affich_back.png" alt="background illustration"/>
+<div class="professeurs">
+    <div class="wrapper">
+        <div class="Title">
+            <div class="link">
+                <div class="left">
+                    <a href="/Cours"> <i class="fa fa-arrow-left" style="font-size:20px; color: #2a2a2a ; padding-right: 5px"></i>Retourner</a>
+                </div>
+
+            </div>
+            <h1 style="color: #2a2a2a ; text-shadow: 2px 2px 8px rgba(42,42,42,0.42)">Liste des cours </h1>
+            <a href="/Cours/ajouter"  class="ajout" >Ajouter</a>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Intitule</th>
+
+        </tr>
+        {% for c in Cours %}
+            <td>{{ c.id}}</td>
+            <td>{{ c.intitule }}</td>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
 </html>
-<h1>Les Cours disponibles </h1>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Intitule</th>
-    </tr>
-    {% for c in Cours %}
-        <td>{{ c.id}}</td>
-        <td>{{ c.intitule }}</td>
 
 
-    {% endfor %}
-
-</table>
-<a href="{{ path("ajouter") }}">new course </a> <br>
-<a href="{{ path("acceuil") }}"> go back</a>

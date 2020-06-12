@@ -1,38 +1,61 @@
+<!DOCTYPE html>
+<html>
 
-{% block stylesheets %}<link rel="stylesheet" href="/Styles/style.css"/>{% endblock %}
-{% block body %}
-
-
-
-
-    <div class="example-wrapper">
-        <h1>Ajout des proffesseurs! ✅</h1>
-        <div>
-            <form action="{{ path("professor_HandleEdit",{id:profs.id}) }}" method="post">
-                <label>Nom</label>
-                <input type="text"  name="Nom" placeholder="Your last name.." value="{{ profs.nom }}" required>
-
-                <label>Prenom</label>
-                <input type="text" name="Prenom" placeholder="Your name.." value="{{ profs.prenom }}" required> <br/>
-
-                <label>Adresse</label>
-                <input type="text" name="Adresse" value="{{ profs.adresse }}" placeholder="Your home adresse" required><br/>
-
-                <label>Email</label>
-                <input type="email" name="Email" value="{{ profs.email }}" placeholder="Valid email adresse" required><br/>
-
-                <label>Telephone</label>
-                <input type="tel" name="Tel" value="{{ profs.telephone }}" placeholder="phone number" required>
-
-                <label>Cin</label>
-                <input type="text" name="Cin" value="{{ profs.cin }}" placeholder="cin" required><br/>
-
-                <label>Date de recrutement</label>
-                <input type="date" name="Date" value="{{ profs.dateRecrutement }}" required>
-
-                <input type="submit" value="Editer">
-            </form>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <title>{% block title %}Professeurs | Que voulez vous faire ?{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Styles/forms.css"/>
+    {% endblock %}
+</head>
+<body>
+<div class="split left">
+    <div class="link">
+        <div class="leftee">
+            <a href="/professor/supp"> <i class="fa fa-arrow-left" style="font-size:20px; color: #fafafa ; padding-right: 5px"></i>Retourner</a>
         </div>
-        <a href="/professor">Go back</a>
     </div>
-{% endblock %}
+    <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_Fn8jlg.json"  background="transparent"  speed="1"  style="width: 93%; height: 93%; text-align: center"  loop  autoplay>
+
+    </lottie-player>
+</div>
+<div class="split right">
+    <h1 class="title">Editer le proffesseur ! </h1>
+    <div class="form_container">
+        <form action="{{ path("form_handler") }}" method="post">
+            <div class="float_contain">
+                <div class="lefter">
+                    <label>Nom</label>
+                    <input type="text"  name="Nom" placeholder="Your last name.." value="{{ profs.nom }}" required>
+                </div>
+                <div class="righter">
+                    <label>Prenom</label>
+                    <input type="text" name="Prenom" placeholder="Your name.." value="{{ profs.prenom }}" required> <br/>
+                </div>
+            </div>
+
+            <label>Adresse</label>
+            <input type="text" name="Adresse" value="{{ profs.adresse }}" placeholder="Your home adresse" required><br/>
+
+            <label>Email</label>
+            <input type="email" name="Email" value="{{ profs.email }}" placeholder="Valid email adresse" required><br/>
+
+            <label>Telephone</label>
+            <input type="tel" name="Tel" value="{{ profs.telephone }}" placeholder="phone number" required>
+
+            <label>Cin</label>
+            <input type="text" name="Cin" value="{{ profs.cin }}" placeholder="cin" required><br/>
+
+            <label>Date de recrutement</label>
+            <input type="date" name="Date" value="{{ profs.dateRecrutement }}" required>
+
+            <input class="button" type="submit" value="Editer">
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

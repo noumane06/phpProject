@@ -1,12 +1,32 @@
+/*  Table css */
 table {
     border-collapse: collapse;
+    border-spacing: 0;
     border-radius: 1em;
     overflow: hidden;
     font-family: "Glacial Indifference";
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
+    width: 100%;
+
 }
+.action
+{
+    opacity: 1;
+    transition: opacity ease-in-out 0.2s;
+}
+.action:hover
+{
+    opacity: 0.9;
+}
+th, td {
+    padding: 1em;
+    background: #ddd;
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+/* -------------------------   */
 #bg {
     position: fixed;
     top: 0;
@@ -35,7 +55,7 @@ table {
 }
 .professeurs
 {
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     background-color: #fafafa;
@@ -45,11 +65,7 @@ table {
     margin-top: 5%;
 
 }
-th, td {
-    padding: 1em;
-    background: #ddd;
-    border-bottom: 2px solid white;
-}
+
 
 body {
     margin: 1.5em;

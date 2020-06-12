@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CoursController extends AbstractController
 {
     /**
-     * @Route("/CoursAcceuil", name="acceuil")
+     * @Route("/Cours", name="acceuil")
      *
      */
     public function index()
@@ -23,7 +23,7 @@ class CoursController extends AbstractController
         ]);
     }
     /**
-     * @Route("/Cours", name="Liste_Cours")
+     * @Route("/Cours/Afficher", name="Liste_Cours")
      */
     public function ListeCours(CoursRepository $coursRepository)
     {   $Cours=$coursRepository->findAll();
@@ -74,11 +74,10 @@ class CoursController extends AbstractController
 
         return $this -> redirectToRoute("cours_supp");
     }
+
     /**
      * @Route("/Cours/Editer/{id}", name="Editer_cours")
      */
-
-
 
     public function editer($id,CoursRepository $repository)
     {

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DepartementController extends AbstractController
 {
     /**
-     * @Route("/DepartementsAcceuil", name="departement")
+     * @Route("/Departements", name="departement")
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class DepartementController extends AbstractController
     }
 
     /**
-     * @Route("/Departements", name="Liste_dep")
+     * @Route("/Departements/afficher", name="Liste_dep")
      */
     public function ListeCours(DepartementsRepository $Repository)
     {
@@ -58,7 +58,7 @@ class DepartementController extends AbstractController
     }
 
     /**
-     * @Route("/departement/supp", name="dep_supp")
+     * @Route("/Departements/supp", name="dep_supp")
      */
     public function supp(DepartementsRepository $repository)
     {
@@ -69,7 +69,7 @@ class DepartementController extends AbstractController
     }
 
     /**
-     * @Route("/Cours/delete/{id}", name="delete")
+     * @Route("/Departements/delete/{id}", name="deleteDep")
      */
     public function handleSupp(EntityManagerInterface $em, $id, DepartementsRepository $repository)
     {
@@ -82,28 +82,28 @@ class DepartementController extends AbstractController
     }
 
     /**
-     * @Route("/departement/editer/{id}", name="editer")
+     * @Route("/Departements/editer/{id}", name="editeDep")
      */
     public function editer($id, DepartementsRepository $repository)
     {
         $dep = $repository->find($id);
         return $this->render('departement/editer.html.twig', [
-            'departement' => $dep,
+            'depar' => $dep,
         ]);
     }
 
     /**
-     * @Route("/departement/handlEdit/{id}", name="dep_HandleEdit")
+     * @Route("/Departements/handlEdit/{id}", name="dep_HandleEdit")
      */
 
 
-    public function Handleediter(EntityManagerInterface $em, Request $req, $id, DepartementsRepository $repository)
+    public function Handleediter(EntityManagerInterface $em, \Symfony\Component\HttpFoundation\Request $req, $id, DepartementsRepository $repository)
     {
         $dep = $repository->find($id);
         $dep->setNomDep($req->request->get("nom_dep"));
 
         $em->persist($dep);
         $em->flush();
-        return $this->redirectToRoute("supp_dep");
+        return $this->redirectToRoute("dep_supp");
     }
 }

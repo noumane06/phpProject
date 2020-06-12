@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title>{% block title %}Editer/supp des professeurs {% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Styles/affichage.css"/>
+    {% endblock %}
 </head>
 <style>
-    table {
-        font-family: "Glacial Indifference";
-        border-collapse: collapse;
-        width: 100%;
-        border-radius: 15px;
-    }
 
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
 </style>
 <body>
-<div class="Cours">
-    <a href="{{ path("acceuil") }}"> go back</a>
+<img id="bg" src="/Res/affich_back.png" alt="background illustration"/>
+<div class="professeurs">
+    <div class="wrapper">
+        <div class="Title">
+            <div class="link">
+                <div class="left">
+                    <a href="{{ path("acceuil") }}"> <i class="fa fa-arrow-left" style="font-size:20px; color: #2a2a2a ; padding-right: 5px"></i>Retourner</a>
+                </div>
+
+            </div>
+            <h1 style="color: #2a2a2a ; text-shadow: 2px 2px 8px rgba(42,42,42,0.42)">Modifier des cours </h1>
+            <a href="/professor/ajouter"  class="ajout" >Ajouter</a>
+        </div>
+    </div>
     <table>
         <tr>
             <th>id</th>
             <th>Intitule</th>
-
+            <th>Actions</th>
         </tr>
         {% for c in Cours %}
             <tr>
                 <td>{{ c.id }}</td>
                 <td>{{ c.intitule }}</td>
-
-                <td><a href="{{ path("delete_cours",{id:c.id}) }}"> Supprimer</a> <br>
-                    <a href="{{ path("Editer_cours",{id:c.id}) }}">Editer</a>
-                </td>
+                <td><a href="{{ path("delete_cours",{id:c.id}) }}"
+                       style="text-decoration: none ; font-weight: bolder ; color : #b81717;"
+                       class="action"
+                    ><i class='fa fa-trash' style="padding-right: 5px" ></i>Supp</a> <br>
+                    <a href="{{ path("Editer_cours",{id:c.id}) }}"
+                       style="text-decoration: none ; font-weight: bolder ; color : #174db8;"
+                       class="action"
+                    >
+                        <i class='fas fa-edit' style="padding-right: 5px"></i>Editer</a></td>
             </tr>
         {% endfor %}
     </table>
@@ -48,3 +55,5 @@
 
 </body>
 </html>
+
+
