@@ -7,8 +7,9 @@
 </head>
 </html>
 <h1>Editer des cours! ✅</h1>
-<form action="{{ path("new_Cours") }}" method="POST" >
-    Intitule<input type="text" name="intitule"> <br>
-    <input type="submit">
+<form action="{{ path("cours_HandleEdit",{id:c.id}) }}" method="POST" >
+    Intitule<input type="text"  name="intitule"  value="{{ c.intitule }}" required>
+     <br>
+    <input type="submit" value="Editer_cours">
 </form>
 <a href="{{ path("acceuil") }}"> go back</a>

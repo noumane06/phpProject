@@ -68,8 +68,8 @@ class CoursController extends AbstractController
     public function handleSupp(EntityManagerInterface $em,$id,CoursRepository $repository)
     {
 
-        $c=$repository->find($id);
-        $em->remove($c);
+        $co=$repository->find($id);
+        $em->remove($co);
         $em->flush();
 
         return $this -> redirectToRoute("cours_supp");
@@ -86,6 +86,20 @@ class CoursController extends AbstractController
         return $this->render('cours/Editer.html.twig', [
             'cours' => $Cours,
         ]);
+    }
+    /**
+     * @Route("/Cours/handlEdit/{id}", name="cours_HandleEdit")
+     */
+
+
+    public function Handleediter(EntityManagerInterface $em,Request $req,$id,CoursRepository $repository)
+    {
+        $co=$repository->find($id);
+        $co -> setIntitule($req->request->get("intitule"));
+
+        $em ->persist($co);
+        $em ->flush();
+        return $this -> redirectToRoute("Cours_supp");
     }
 
 
