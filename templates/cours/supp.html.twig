@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello </title>
+    <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+</head>
+<style>
+    table {
+        font-family: "Glacial Indifference";
+        border-collapse: collapse;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body>
+<div class="Cours">
+    <a href="{{ path("acceuil") }}"> go back</a>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Intitule</th>
+
+        </tr>
+        {% for c in Cours %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.intitule }}</td>
+
+                <td><a href="{{ path("delete",{id:c.id}) }}"> Supprimer</a> <br>
+                    <a href="{{ path("editer",{id:c.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>

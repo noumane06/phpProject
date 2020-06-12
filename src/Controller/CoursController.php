@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Entity\Cours;
 use App\Repository\CoursRepository;
+use App\Repository\ProfesseurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -51,6 +52,46 @@ class CoursController extends AbstractController
         $em->flush($c);
         return $this->redirectToRoute("Liste_Cours");
     }
+    /**
+     * @Route("/Cours/supp", name="cours_supp")
+     */
+    public function supp(CoursRepository $repo)
+    {
+        $Cours = $repo->findAll();
+        return $this->render('cours/supp.html.twig', [
+            'Cours' => $Cours,
+        ]);
+    }
+    /**
+     * @Route("/Cours/delete/{id}", name="delete")
+     */
+    public function handleSupp(EntityManagerInterface $em,$id,CoursRepository $repository)
+    {
+
+        $c=$repository->find($id);
+        $em->remove($c);
+        $em->flush();
+
+        return $this -> redirectToRoute("cours_supp");
+    }
+    /**
+     * @Route("/professor/editer/{id}", name="editer")
+     */
+
+
+
+    public function editer($id,CoursRepository $repository)
+    {
+        $Cours=$repository->find($id);
+        return $this->render('cours/editer.html.twig', [
+            'cours' => $Cours,
+        ]);
+    }
+
+
+
+
+
 
 
 }
