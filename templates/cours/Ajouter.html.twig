@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <title>{% block title %}Cours | Que voulez vous faire ?{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Styles/forms.css"/>
+    {% endblock %}
 </head>
 </html>
-<h1>Ajout des cours! ✅</h1>
-<form action="{{ path("new_Cours") }}" method="POST" >
-    Intitule<input type="text" name="intitule"> <br>
-    <input type="submit">
-</form>
-<a href="{{ path("acceuil") }}"> go back</a>
+<body>
+<div class="split left" style="background: url( '/Res/cours_back.png');">
+    <div class="link">
+        <div class="leftee">
+            <a href="{{ path("acceuil") }}"> <i class="fa fa-arrow-left" style="font-size:20px; color: #fafafa ; padding-right: 5px"></i>Retourner</a>
+        </div>
+    </div>
+    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_AXoQyR.json"  background="transparent"  speed="1"  style="width: 93%; height: 93%; text-align: center"  loop  autoplay>
+
+    </lottie-player>
+</div>
+<div class="split right">
+    <h1 class="title">Ajout des cours ! </h1>
+    <div class="form_container" style="margin-top: 20%">
+        <form action="{{ path("new_Cours") }}" method="post">
+
+            <label>Intitule</label>
+            <input type="text" name="intitule" placeholder="intitule" required><br/>
+
+            <input class="button" type="submit" value="Ajouter le cours !">
+        </form>
+    </div>
+
+</div>
+</body>

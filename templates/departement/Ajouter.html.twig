@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Hello </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <title>{% block title %}Cours | Que voulez vous faire ?{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Styles/forms.css"/>
+    {% endblock %}
 </head>
 </html>
-<h1>Ajout des cours! ✅</h1>
-<form action="{{ path("new_dep") }}" method="POST" >
-    nom_dep<input type="text" name="Nom departement"> <br>
-    <input type="submit">
-</form>
-<a href="{{ path("departement") }}"> go back</a>
+<body>
+<div class="split left" style="background: url( '/Res/dep_back.png'); background-position: center ; background-size: cover">
+    <div class="link">
+        <div class="leftee">
+            <a href="{{ path("departement") }}"> <i class="fa fa-arrow-left" style="font-size:20px; color: #fafafa ; padding-right: 5px"></i>Retourner</a>
+        </div>
+    </div>
+
+</div>
+<div class="split right">
+    <h1 class="title">Ajout de departement ! </h1>
+    <div class="form_container" style="margin-top: 20%">
+        <form action="{{ path("new_dep") }}" method="post">
+
+            <label>Nom du departement</label>
+            <input type="text" name="Nom departement" placeholder="departement" required><br/>
+
+            <input class="button" type="submit" value="Ajouter le departement !">
+        </form>
+    </div>
+
+</div>
+</body>
