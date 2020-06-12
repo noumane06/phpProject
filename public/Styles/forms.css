@@ -1,3 +1,5 @@
+
+
 body
 {
     font-family: "Glacial Indifference";
@@ -43,13 +45,14 @@ input[type=submit] {
     width: 100%;
     background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
     opacity: 1;
-    transition: opacity ease-in-out 0.2s;
+    transition: all ease-in-out 0.2s;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
 }
 .link
 {
@@ -76,25 +79,37 @@ input[type=submit] {
 }
 .float_contain
 {
-    overflow: auto;
+    display: flex;
+    flex-flow: wrap;
 }
 .lefter
 {
-    float: left;
+    margin-right: 2%;
+   flex-grow: 1;
 }
 .righter
 {
-    float: right;
+    flex-grow: 1;
 }
-
+.leftel
+{
+    flex-grow: 1;
+    padding-right: 5px;
+}
+.rightcin
+{
+    flex-grow: 1;
+}
 
 input[type=submit]:hover {
     opacity: 0.9;
-
+    box-shadow: 0 0px 10px 0 rgba(255, 98, 37, 0.72);
 }
 .button
 {
     font-weight: bolder;
+    font-size: 15px;
+    text-outline: none;
 }
 label
 {
@@ -104,4 +119,20 @@ label
 .form_container {
     width: 70%;
     margin-left: 15%;
+}
+
+
+
+@media only screen and (max-width: 1265px) {
+    .lefter
+    {
+        margin-right: 0;
+    }
+
+}
+@media only screen and (max-width: 1270px) {
+    .leftel
+    {
+        padding-right: 0;
+    }
 }
