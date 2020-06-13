@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Cours;
 use App\Entity\Departements;
+use App\Entity\Professeur;
 use App\Repository\CoursRepository;
 use App\Repository\DepartementsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,15 +37,37 @@ class DepartementController extends AbstractController
     /**
      * @Route("/Departements/ajouter", name="ajouter_dep")
      */
-    public function Ajouter(DepartementsRepository $Repository)
+    public function Ajouter()
     {
-        $dep = $Repository->findAll();
-        return $this->render('departement/Ajouter.html.twig', [
-            'departement' => $dep
-        ]);
-
+        return $this->render('departement/Ajouter.html.twig');
     }
 
+    /**
+     * @Route("/Departements/afficherProfDep", name="afficherProf_dep")
+     */
+    public function AfficherProfDep(DepartementsRepository $d)
+    {
+        $dep = $d->findAll();
+        return $this->render('departement/AfficherProf_dep.html.twig',[
+            'dep' => $dep
+        ]);
+    }
+
+    /**
+     * @Route("/Departements/afficherProfDep/{id}", name="afficherProf_depById")
+     */
+
+    // Affichage Cours renderer
+
+    public function afficherCours(Departements $d)
+    {
+        $pr = $d ->getProf();
+        $nom = $d ->getNomDep();
+        return $this->render('departement/AffichListeProf_dep.html.twig', [
+            'prof' => $pr,
+            'nom' => $nom
+        ]);
+    }
     /**
      * @Route("/Departements/new", name="new_dep")
      */

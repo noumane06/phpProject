@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/Res/itachi-alt.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}Liste des proffesseurs {% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/Styles/affichage.css"/>
+    {% endblock %}
+</head>
+<style>
+
+</style>
+<body>
+<img id="bg" src="/Res/affich_back.png" alt="background illustration"/>
+<div class="professeurs">
+    <div class="wrapper">
+        <div class="Title">
+            <div class="link">
+                <div class="left">
+                    <a href="/professor/afficher"> <i class="fa fa-arrow-left" style="font-size:20px; color: #2a2a2a ; padding-right: 5px"></i>Retourner</a>
+                </div>
+
+            </div>
+            <h1 style="color: #2a2a2a ; text-shadow: 2px 2px 8px rgba(42,42,42,0.42)">Liste des Cours  </h1>
+            <h3 style="color: #48b357">Prof : {{nom}} {{prenom}} </h3>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Intitule</th>
+
+        </tr>
+        {% for c in course %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.Intitule }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>
+
+

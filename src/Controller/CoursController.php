@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Entity\Cours;
+use App\Entity\Professeur;
 use App\Repository\CoursRepository;
 use App\Repository\ProfesseurRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -51,6 +52,45 @@ class CoursController extends AbstractController
         $em->persist($c);
         $em->flush();
         return $this->redirectToRoute("Liste_Cours");
+    }
+
+    // Affcter des cours a des profs
+    /**
+     * @Route("/Cours/affecter", name="affectation")
+     */
+    public function affecter(ProfesseurRepository $ProfsRepository )
+    {
+        $Profs=$ProfsRepository->findAll();
+        return $this->render('cours/affecter.html.twig', [
+            'profs'=>$Profs
+        ]);
+    }
+
+    /**
+     * @Route("/Cours/affecter/{id}", name="affectation_Cours")
+
+     */
+    public function affecterCours(Professeur $p , CoursRepository $cr )
+    {
+        $c = $cr->findAll();
+
+        return $this->render('cours/affichCours.html.twig', [
+            'courses' => $c,
+            'prof' => $p
+        ]);
+    }
+
+    /**
+     * @Route("/Cours/handleAffectation/{id}", name="affectation_handler")
+
+     */
+    public function handleAffectation(\Symfony\Component\HttpFoundation\Request $req ,EntityManagerInterface $em ,Professeur $prof , CoursRepository $cours)
+    {
+        $c = $cours->find($req->request->get("intitule"));
+        $prof->addCourse($c);
+        $em ->persist($prof);
+        $em ->flush();
+        return $this -> redirectToRoute("professor_afficher");
     }
     /**
      * @Route("/Cours/supp", name="cours_supp")

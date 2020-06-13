@@ -57,6 +57,18 @@
 
             <label>Date de recrutement</label>
             <input type="date" name="Date" required>
+            <label>Cours</label>
+            <select name="cours">
+                {% for c in cours %}
+                <option value="{{ c.id }}">{{ c.Intitule }}</option>
+                {% endfor %}
+            </select>
+            <label>Departement</label>
+            <select name="dep">
+                {% for c in depart %}
+                <option value="{{ c.id }}" >{{ c.NomDep }}</option>
+                {% endfor %}
+            </select>
 
             <input class="button" type="submit" value="Ajouter proffesseur !">
         </form>

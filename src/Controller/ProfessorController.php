@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Professeur;
+use App\Repository\CoursRepository;
+use App\Repository\DepartementsRepository;
 use App\Repository\ProfesseurRepository;
 use Doctrine\DBAL\Types\DateType;
 use Doctrine\DBAL\Types\TextType;
@@ -32,7 +34,7 @@ class ProfessorController extends AbstractController
      */
 
     // adding data to the data base
-    public function handleAdd(EntityManagerInterface $em , Request $req)
+    public function handleAdd(EntityManagerInterface $em , Request $req , DepartementsRepository $dep , CoursRepository $co)
     {
         $prof = new Professeur();
         $prof -> setNom($req->request->get("Nom"));
@@ -42,6 +44,11 @@ class ProfessorController extends AbstractController
         $prof -> setEmail($req->request->get("Email"));
         $prof -> setTelephone($req->request->get("Tel"));
         $prof -> setDateRecrutement($req -> request -> get("Date"));
+
+        $data = $co ->find($req->request->get("cours"));
+        $prof ->addCourse($data);
+        $d =$dep ->find($req->request->get("dep"));
+        $prof -> setDepartements($d);
         $em ->persist($prof);
         $em ->flush();
         return $this -> redirectToRoute("professor_afficher");
@@ -52,11 +59,13 @@ class ProfessorController extends AbstractController
      * @Route("/professor/ajouter", name="professor_ajouter")
      */
     // Ajout renderer
-    public function ajouter()
+    public function ajouter(DepartementsRepository $dep , CoursRepository $c)
     {
-
+        $departement = $dep->findAll();
+        $cours = $c->findAll();
         return $this->render('professor/ajouter.html.twig', [
-            'controller_name' => 'ProfessorActionController',
+            'depart' => $departement,
+            'cours' => $cours
         ]);
     }
     /**
@@ -65,11 +74,28 @@ class ProfessorController extends AbstractController
 
     // Affichage renderer
 
-    public function afficher(ProfesseurRepository $repo)
+    public function afficher(ProfesseurRepository $repo )
     {
         $prof = $repo ->findAll();
         return $this->render('professor/afficher.html.twig', [
             'professeurs' => $prof,
+        ]);
+    }
+    /**
+     * @Route("/professor/afficher/{id}", name="professor_afficherCours")
+     */
+
+    // Affichage Cours renderer
+
+    public function afficherCours(Professeur $p )
+    {
+        $cours = $p->getCourse();
+        $name = $p->getNom() ;
+        $prenom = $p->getPrenom();
+        return $this->render('professor/affichCours.html.twig', [
+            'course' => $cours,
+            'nom' => $name,
+            'prenom' => $prenom
         ]);
     }
     /**
