@@ -38,6 +38,7 @@
             <th>telephone</th>
             <th>Email</th>
             <th>Date de recrutement</th>
+            <th>Departements</th>
             <th>Actions</th>
         </tr>
         {% for prof in profs %}
@@ -50,6 +51,7 @@
                 <td>{{ prof.telephone }}</td>
                 <td>{{ prof.email }}</td>
                 <td>{{ prof.dateRecrutement }}</td>
+                <td>{{ prof.departements.NomDep }}</td>
                 <td><a href="{{ path("professor_handleSupp",{id:prof.id}) }}"
                        style="text-decoration: none ; font-weight: bolder ; color : #b81717;"
                        class="action"

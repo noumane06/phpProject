@@ -25,7 +25,7 @@
 <div class="split right">
     <h1 class="title">Editer le proffesseur ! </h1>
     <div class="form_container">
-        <form action="{{ path("form_handler") }}" method="post">
+        <form action="{{ path("professor_HandleEdit",{id:id}) }}" method="post">
             <div class="float_contain">
                 <div class="lefter">
                     <label>Nom</label>
@@ -51,6 +51,13 @@
 
             <label>Date de recrutement</label>
             <input type="date" name="Date" value="{{ profs.dateRecrutement }}" required>
+
+            <label>Departement</label>
+            <select name="dep">
+                {% for c in dep %}
+                    <option value="{{ c.id }}" >{{ c.NomDep }}</option>
+                {% endfor %}
+            </select>
 
             <input class="button" type="submit" value="Editer">
         </form>

@@ -131,14 +131,14 @@ class CoursController extends AbstractController
      */
 
 
-    public function Handleediter(EntityManagerInterface $em,Request $req,$id,CoursRepository $repository)
+    public function Handleediter(EntityManagerInterface $em,\Symfony\Component\HttpFoundation\Request $req,$id,CoursRepository $repository)
     {
         $co=$repository->find($id);
         $co -> setIntitule($req->request->get("intitule"));
 
         $em ->persist($co);
         $em ->flush();
-        return $this -> redirectToRoute("Cours_supp");
+        return $this -> redirectToRoute("cours_supp");
     }
 
 

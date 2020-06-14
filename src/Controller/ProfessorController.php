@@ -104,11 +104,13 @@ class ProfessorController extends AbstractController
 
     // Handle edit renderer
 
-    public function editer($id,ProfesseurRepository $repository)
+    public function editer($id,Professeur $pr , DepartementsRepository $dep)
     {
-        $c=$repository->find($id);
+        $d = $dep->findAll();
         return $this->render('professor/edit.html.twig', [
-            'profs' => $c,
+            'profs' => $pr,
+            'id' => $id,
+            'dep' => $d
         ]);
     }
     /**
@@ -117,9 +119,9 @@ class ProfessorController extends AbstractController
 
     // Handle edit renderer
 
-    public function Handleediter(EntityManagerInterface $em,Request $req,$id,ProfesseurRepository $repository)
+    public function Handleediter(EntityManagerInterface $em,Request $req,Professeur $prof , DepartementsRepository $dep)
     {
-        $prof=$repository->find($id);
+
         $prof -> setNom($req->request->get("Nom"));
         $prof -> setPrenom($req->request->get("Prenom"));
         $prof -> setAdresse($req->request->get("Adresse"));
@@ -127,6 +129,8 @@ class ProfessorController extends AbstractController
         $prof -> setEmail($req->request->get("Email"));
         $prof -> setTelephone($req->request->get("Tel"));
         $prof -> setDateRecrutement($req -> request -> get("Date"));
+        $d =$dep ->find($req->request->get("dep"));
+        $prof -> setDepartements($d);
         $em ->persist($prof);
         $em ->flush();
         return $this -> redirectToRoute("professor_supp");
